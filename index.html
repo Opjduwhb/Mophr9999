@@ -3,20 +3,124 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خلفية متحركة</title>
+    <title>محمد فاروق عثمان - موقع ترحيبي</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
-            background-image: url('https://media.tenor.com/Zp9f2I9FpFcAAAAd/anonimous-hacker.gif');
+            background-image: url('https://img.freepik.com/free-photo/hacker-hood-stealing-information-from-computer-monitor-cybercrime-concept_1142-40429.jpg?t=st=1721712591~exp=1721716191~hmac=8b78babd2de31b78df3c1c19ccd8df851832cdcc7049d5af6cad2069e6712632&w=740');
             background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-position: center;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-image 0.5s;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 20px;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            animation: fadeIn 3s;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            animation: fadeIn 4s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .prices {
+            display: none;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .prices p {
+            margin: 10px 0;
+        }
+        .notification {
+            font-size: 1em;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            color: #ff0000;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        a:hover {
+            background-color: #0056b3;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <h1 style="color: white; text-align: center; padding-top: 20%;">مرحبًا بك في موقعي معكم سعيد البرنس  هذا المواقع معمول مزح وضحك فقط ول يحمل اي ادوات هكر</h1>
+    <div class="container">
+        <h1>مرحبا بك في موقع محمد فاروق عثمان</h1>
+        <p>مهندس تكنولوجيا ومعلومات والأمن السيبراني.</p>
+        <p>إذا أردت الدخول على أدوات الهكر ومعرفة الأسعار، اضغط على الزر أدناه:</p>
+        <button onclick="showPrices()">عرض الأسعار</button>
+        <div class="prices" id="prices">
+            <h2>قائمة الأسعار</h2>
+            <p>كسر كلمة المرور: 100 جنيه</p>
+            <p>استرجاع بيانات: 150 جنيه</p>
+            <p>تحليل أمني: 200 جنيه</p>
+            <p>فحص أمني شامل: 300 جنيه</p>
+            <p>فتح فيسبوك: 75 جنيه</p>
+            <p>استرجاع فيسبوك: 100 جنيه</p>
+            <p>أداة تطير فيسبوك: 125 جنيه</p>
+            <p>أداة إبلاغ عشوائي: 150 جنيه</p>
+            <p>أداة فتح واتساب واستلام ستة أكواد: 200 جنيه</p>
+            <div class="notification">
+                إذا اخترت أي من الأدوات أعلاه، يرجى الضغط على الزر أدناه للتواصل مع المطور محمد فاروق عثمان لشراء الأداة.
+            </div>
+            <a href="https://www.facebook.com/mhmd.farwq.thman.2024" target="_blank">تواصل مع المطور عبر فيسبوك</a>
+            <a href="#" onclick="goBack()">العودة إلى الصفحة الرئيسية</a>
+        </div>
+    </div>
+    <script>
+        function showPrices() {
+            document.body.style.backgroundImage = "url('https://img.freepik.com/premium-photo/cyber-security-shield-digital-design-with-blue-background_24070-1280.jpg?w=740')";
+            document.getElementById('prices').style.display = 'block';
+        }
+
+        function goBack() {
+            document.body.style.backgroundImage = "url('https://img.freepik.com/free-photo/hacker-hood-stealing-information-from-computer-monitor-cybercrime-concept_1142-40429.jpg?t=st=1721712591~exp=1721716191~hmac=8b78babd2de31b78df3c1c19ccd8df851832cdcc7049d5af6cad2069e6712632&w=740')";
+            document.getElementById('prices').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
