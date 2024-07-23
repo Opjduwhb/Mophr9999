@@ -1,1 +1,175 @@
 
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شات كتابي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 500px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 70vh;
+        }
+
+        .chat-header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            position: relative;
+        }
+
+        .chat-header .users-icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .chat-messages p {
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+        }
+
+        .chat-input input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .chat-input button:hover {
+            background-color: #45a049;
+        }
+
+        .users-list {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .users-list ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .users-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .users-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h2>شات مباشر</h2>
+            <div class="users-icon" onclick="toggleUsersList()">👤</div>
+            <div class="users-list" id="users-list">
+                <ul>
+                    <!-- المستخدمين المتصلين -->
+                    <li>محمد</li>
+                    <li>أحمد</li>
+                    <li>خالد</li>
+                    <li>علي</li>
+                </ul>
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <!-- الرسائل ستظهر هنا -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="message-input" placeholder="اكتب رسالتك...">
+            <button id="send-button">إرسال</button>
+        </div>
+    </div>
+    <script>
+        const sendButton = document.getElementById('send-button');
+        const messageInput = document.getElementById('message-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const usersList = document.getElementById('users-list');
+
+        sendButton.addEventListener('click', function() {
+            const messageText = messageInput.value.trim();
+            if (messageText !== '') {
+                const messageElement = document.createElement('p');
+                messageElement.textContent = messageText;
+                chatMessages.appendChild(messageElement);
+                messageInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+
+        messageInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendButton.click();
+            }
+        });
+
+        function toggleUsersList() {
+            if (usersList.style.display === 'block') {
+                usersList.style.display = 'none';
+            } else {
+                usersList.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
