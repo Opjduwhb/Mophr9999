@@ -1,174 +1,183 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شات كتابي</title>
+    <title>مرحبًا بك في موقع محمد فاروق عثمان</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
+        body, html {
+            height: 100%;
             margin: 0;
-            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            background-image: url('https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load');
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-
-        .chat-container {
-            width: 90%;
-            max-width: 500px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
             flex-direction: column;
-            height: 70vh;
         }
 
-        .chat-header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px;
-            text-align: center;
-            position: relative;
+        .welcome-text {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
 
-        .chat-header .users-icon {
-            position: absolute;
-            top: 50%;
-            right: 15px;
-            transform: translateY(-50%);
-            cursor: pointer;
+        .question-box, .name-box, .tools-box, .comments-box {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            width: 80%;
+            max-width: 600px;
         }
 
-        .chat-messages {
-            flex: 1;
-            padding: 15px;
-            overflow-y: auto;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .chat-messages p {
-            background-color: #f1f1f1;
-            padding: 10px;
-            border-radius: 5px;
-            margin: 10px 0;
-        }
-
-        .chat-input {
-            display: flex;
-            padding: 10px;
-        }
-
-        .chat-input input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            outline: none;
-        }
-
-        .chat-input button {
-            background-color: #4CAF50;
-            color: white;
+        .button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 10px;
             border: none;
-            padding: 10px 15px;
-            margin-left: 10px;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
-        .chat-input button:hover {
-            background-color: #45a049;
+        .yes-button {
+            background-color: #4CAF50;
+            color: white;
         }
 
-        .users-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 15px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 200px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-height: 300px;
-            overflow-y: auto;
+        .no-button {
+            background-color: #f44336;
+            color: white;
         }
 
-        .users-list ul {
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .tools-list {
             list-style: none;
-            margin: 0;
             padding: 0;
         }
 
-        .users-list li {
+        .tools-list li {
+            margin: 10px 0;
             padding: 10px;
-            border-bottom: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            transition: transform 0.3s;
         }
 
-        .users-list li:last-child {
-            border-bottom: none;
+        .tools-list li:hover {
+            transform: translateY(-10px);
+        }
+
+        .tool-button {
+            background-color: #2196F3;
+            color: white;
+            font-size: 1em;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .comments {
+            font-size: 0.9em;
+            margin-top: 20px;
+        }
+
+        .comment {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .disclaimer {
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #FFDD00;
         }
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            <h2>شات مباشر</h2>
-            <div class="users-icon" onclick="toggleUsersList()">👤</div>
-            <div class="users-list" id="users-list">
-                <ul>
-                    <!-- المستخدمين المتصلين -->
-                    <li>محمد</li>
-                    <li>أحمد</li>
-                    <li>خالد</li>
-                    <li>علي</li>
-                </ul>
-            </div>
-        </div>
-        <div class="chat-messages" id="chat-messages">
-            <!-- الرسائل ستظهر هنا -->
-        </div>
-        <div class="chat-input">
-            <input type="text" id="message-input" placeholder="اكتب رسالتك...">
-            <button id="send-button">إرسال</button>
+    <div class="welcome-text">
+        <h1>مرحبًا بك في موقع محمد فاروق عثمان</h1>
+        <p>دعنا نتعرف بك، ما اسمك؟</p>
+    </div>
+
+    <div class="question-box">
+        <h2>هل تريد تعلم أدوات الهكر؟</h2>
+        <button class="button yes-button" onclick="showNameBox()">نعم</button>
+        <button class="button no-button" onclick="alert('شكراً لزيارتك!')">لا</button>
+    </div>
+
+    <div class="name-box" style="display: none;">
+        <input type="text" id="nameInput" placeholder="أدخل اسمك هنا" style="padding: 10px; font-size: 1em;">
+        <button class="button yes-button" onclick="showToolsBox()">إرسال</button>
+    </div>
+
+    <div class="tools-box" style="display: none; background-image: url('https://artic.al3yla.com/wp-content/uploads/2019/01/%D8%AE%D9%84%D9%81%D9%8A%D8%A7%D8%AA-%D9%87%D9%83%D8%B1-%D9%85%D8%B1%D8%B9%D8%A8%D9%87-%D9%84%D9%84%D8%AC%D9%88%D8%A7%D9%8418.jpg'); background-size: cover;">
+        <h2>أدوات الهكر</h2>
+        <ul class="tools-list">
+            <li>
+                <span>كسر كلمة المرور</span>
+                <button class="tool-button" onclick="contactDeveloper()">تواصل مع المطور</button>
+            </li>
+            <li>
+                <span>استرجاع حاسوب</span>
+                <button class="tool-button" onclick="contactDeveloper()">تواصل مع المطور</button>
+            </li>
+            <li>
+                <span>تخمين وسوردات</span>
+                <button class="tool-button" onclick="contactDeveloper()">تواصل مع المطور</button>
+            </li>
+            <li>
+                <span>إبلاغات عشوائية حتى يتم قفل الحساب</span>
+                <button class="tool-button" onclick="contactDeveloper()">تواصل مع المطور</button>
+            </li>
+            <li>
+                <span>فتح واتساب مسروق (يعطيك الست أكواد)</span>
+                <button class="tool-button" onclick="contactDeveloper()">تواصل مع المطور</button>
+            </li>
+        </ul>
+        <p class="disclaimer">غير مسؤول عن استخدام هذه الأدوات بالطريقة الخطأ.</p>
+    </div>
+
+    <div class="comments-box">
+        <h3>تعليقات المستخدمين</h3>
+        <div class="comments">
+            <div class="comment">"الأدوات رائعة ومفيدة جدًا، شكرًا لك محمد فاروق عثمان!"</div>
+            <div class="comment">"جربت الأدوات وكانت ممتازة، بالتوفيق!"</div>
+            <div class="comment">"أفضل موقع لتعلم الأدوات، شكراً لكم!"</div>
         </div>
     </div>
+
     <script>
-        const sendButton = document.getElementById('send-button');
-        const messageInput = document.getElementById('message-input');
-        const chatMessages = document.getElementById('chat-messages');
-        const usersList = document.getElementById('users-list');
+        function showNameBox() {
+            document.querySelector('.name-box').style.display = 'block';
+        }
 
-        sendButton.addEventListener('click', function() {
-            const messageText = messageInput.value.trim();
-            if (messageText !== '') {
-                const messageElement = document.createElement('p');
-                messageElement.textContent = messageText;
-                chatMessages.appendChild(messageElement);
-                messageInput.value = '';
-                chatMessages.scrollTop = chatMessages.scrollHeight;
-            }
-        });
-
-        messageInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                sendButton.click();
-            }
-        });
-
-        function toggleUsersList() {
-            if (usersList.style.display === 'block') {
-                usersList.style.display = 'none';
+        function showToolsBox() {
+            var name = document.getElementById('nameInput').value;
+            if (name) {
+                document.querySelector('.welcome-text').innerHTML = `<h1>مرحبًا بك، ${name}!</h1>`;
+                document.querySelector('.name-box').style.display = 'none';
+                document.querySelector('.tools-box').style.display = 'block';
             } else {
-                usersList.style.display = 'block';
+                alert('يرجى إدخال اسمك.');
             }
+        }
+
+        function contactDeveloper() {
+            window.open('https://www.facebook.com/mhmd.farwq.thman.2024?mibextid=ZbWKwL', '_blank');
         }
     </script>
 </body>
