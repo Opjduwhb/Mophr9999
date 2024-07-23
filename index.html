@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محمد فاروق عثمان -مواقع ادوات</title>
+    <title>محمد فاروق عثمان - مواقع أدوات</title>
     <style>
         body {
             background-image: url('https://img.freepik.com/free-photo/hacker-hood-stealing-information-from-computer-monitor-cybercrime-concept_1142-40429.jpg?t=st=1721712591~exp=1721716191~hmac=8b78babd2de31b78df3c1c19ccd8df851832cdcc7049d5af6cad2069e6712632&w=740');
@@ -24,6 +24,7 @@
             border-radius: 10px;
             max-width: 600px;
             margin: 20px;
+            position: relative;
         }
         h1 {
             font-size: 2em;
@@ -81,9 +82,48 @@
         a:hover {
             background-color: #0056b3;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .testimonials, .feedback-form {
+            display: none;
+            margin-top: 20px;
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 100%;
+            text-align: left;
+            overflow-y: auto;
+            height: 300px; /* ارتفاع ثابت مع التمرير عند الحاجة */
+        }
+        .testimonial-item {
+            margin: 10px 0;
+            font-size: 0.9em;
+        }
+        .testimonial-item::before {
+            content: "★";
+            color: #ffeb3b;
+            font-size: 1.2em;
+            margin-right: 10px;
+        }
+        .testimonial-name {
+            font-weight: bold;
+            color: #ffd700;
+        }
+        .feedback-form textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin-top: 10px;
+            height: 100px;
+        }
+        .feedback-form button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+        }
+        .feedback-form button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
@@ -95,31 +135,54 @@
         <button onclick="showPrices()">عرض الأسعار</button>
         <div class="prices" id="prices">
             <h2>قائمة الأسعار</h2>
-            <p>كسر كلمة المرور: 100 جنيه</p>
-            <p>استرجاع بيانات: 150 جنيه</p>
+            <p>كسر كلمة المرور: 300 جنيه</p>
+            <p>استرجاع بيانات: 200 جنيه</p>
             <p>تحليل أمني: 200 جنيه</p>
             <p>فحص أمني شامل: 300 جنيه</p>
-            <p>فتح فيسبوك: 75 جنيه</p>
-            <p>استرجاع فيسبوك: 100 جنيه</p>
-            <p>أداة تطير فيسبوك: 125 جنيه</p>
-            <p>أداة إبلاغ عشوائي: 150 جنيه</p>
-            <p>أداة فتح واتساب واستلام ستة أكواد: 200 جنيه</p>
+            <p>فتح فيسبوك: 600 جنيه</p>
+            <p>استرجاع فيسبوك: 450 جنيه</p>
+            <p>أداة تطير فيسبوك: 600 جنيه</p>
+            <p>أداة إبلاغ عشوائي: 700 جنيه</p>
+            <p>أداة فتح واتساب واستلام ستة أكواد: 900 جنيه</p>
             <div class="notification">
                 إذا اخترت أي من الأدوات أعلاه، يرجى الضغط على الزر أدناه للتواصل مع المطور محمد فاروق عثمان لشراء الأداة.
             </div>
             <a href="https://www.facebook.com/mhmd.farwq.thman.2024" target="_blank">تواصل مع المطور عبر فيسبوك</a>
             <a href="#" onclick="goBack()">العودة إلى الصفحة الرئيسية</a>
         </div>
+        <div class="testimonials" id="testimonials">
+            <h2>آراء العملاء</h2>
+            <div class="testimonial-item"><span class="testimonial-name">أحمد من القاهرة:</span> "موقع ممتاز! الأدوات فعالة وأسعارها معقولة. شكراً لك محمد فاروق عثمان!"</div>
+            <div class="testimonial-item"><span class="testimonial-name">مريم من الإسكندرية:</span> "أدوات قوية وفعالة، فعلاً خدمتني بشكل كبير."</div>
+            <div class="testimonial-item"><span class="testimonial-name">سامي من الجيزة:</span> "خدمة ممتازة وتجربة رائعة."</div>
+            <div class="testimonial-item"><span class="testimonial-name">ياسر من طنطا:</span> "سعيد بالتعامل معكم، كل الأدوات عملت بشكل جيد."</div>
+            <!-- يمكنك تكرار النمط التالي للتعليقات الإضافية -->
+            <div class="testimonial-item"><span class="testimonial-name">علي من أسيوط:</span> "أداة فعالة جداً وسريعة في الأداء."</div>
+            <div class="testimonial-item"><span class="testimonial-name">فاطمة من الفيوم:</span> "التعامل كان ممتازاً، والأداة تعمل بشكل رائع."</div>
+            <!-- أضف المزيد من التعليقات هنا حتى تصل إلى 50 تعليق -->
+        </div>
+        <div class="feedback-form" id="feedback-form">
+            <h2>شارك بتعليقك</h2>
+            <form action="/submit-feedback" method="post">
+                <textarea name="feedback" placeholder="اكتب تعليقك هنا..."></textarea>
+                <br>
+                <button type="submit">أرسل تعليقك</button>
+            </form>
+        </div>
     </div>
     <script>
         function showPrices() {
             document.body.style.backgroundImage = "url('https://img.freepik.com/premium-photo/cyber-security-shield-digital-design-with-blue-background_24070-1280.jpg?w=740')";
             document.getElementById('prices').style.display = 'block';
+            document.getElementById('testimonials').style.display = 'block';
+            document.getElementById('feedback-form').style.display = 'block';
         }
 
         function goBack() {
             document.body.style.backgroundImage = "url('https://img.freepik.com/free-photo/hacker-hood-stealing-information-from-computer-monitor-cybercrime-concept_1142-40429.jpg?t=st=1721712591~exp=1721716191~hmac=8b78babd2de31b78df3c1c19ccd8df851832cdcc7049d5af6cad2069e6712632&w=740')";
             document.getElementById('prices').style.display = 'none';
+            document.getElementById('testimonials').style.display = 'none';
+            document.getElementById('feedback-form').style.display = 'none';
         }
     </script>
 </body>
