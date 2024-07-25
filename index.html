@@ -3,112 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الدكتورة Samar Wahdan - عيادة الأسنان</title>
+    <title>هجوم الحرمان من الخدمة</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #004d99;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        nav {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Courier New', Courier, monospace;
             display: flex;
             justify-content: center;
-            background-color: #003366;
-            padding: 10px;
-        }
-        nav a {
-            color: #fff;
-            text-decoration: none;
-            margin: 0 15px;
-            font-size: 18px;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
         }
         .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
         }
-        .services, .contact {
+        .attack-message {
+            font-size: 2em;
             margin-bottom: 20px;
+            animation: flicker 1.5s infinite;
+            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
         }
-        h2 {
-            color: #003366;
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-        }
-        .contact-form input, .contact-form textarea {
-            margin-bottom: 10px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .contact-form button {
-            background-color: #004d99;
-            color: #fff;
-            border: none;
-            padding: 10px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-        footer {
-            background-color: #003366;
+        .top-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 0, 0, 0.7);
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+            padding: 10px 0;
+            font-size: 1.5em;
+            z-index: 10;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+        }
+        .spinner {
+            border: 16px solid #000; /* خلفية */
+            border-top: 16px solid #0f0; /* لون التحميل */
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        .attack-details {
+            font-size: 1.2em;
+            white-space: pre-wrap;
+            line-height: 1.5;
+            max-width: 80%;
+            margin: 0 auto;
+            text-shadow: 0 0 5px #0f0;
+            position: relative;
+            height: 60vh; /* لضبط الارتفاع مع الاحتفاظ بعرض البيانات */
+            overflow: hidden;
+        }
+        .scrolling-text {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
+            animation: scroll 5s linear infinite; /* سرعة أسرع */
+        }
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            color: #fff;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .footer a {
+            color: #0f0;
+            text-decoration: none;
+        }
+        .alert-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1.5em;
+            text-align: center;
+            display: none;
+            z-index: 10;
+            width: 80%;
+        }
+        @keyframes scroll {
+            0% { top: 0; }
+            100% { top: -100%; }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>الدكتورة Samar Wahdan - عيادة الأسنان</h1>
-    </header>
-    <nav>
-        <a href="#about">عن العيادة</a>
-        <a href="#services">الخدمات</a>
-        <a href="#contact">تواصل معنا</a>
-    </nav>
+    <div class="top-bar">بيتم دعس الكويتيين</div>
     <div class="container">
-        <section id="about">
-            <h2>عن العيادة</h2>
-            <p>نرحب بكم في عيادة الدكتورة Samar Wahdan المتخصصة في تقديم أعلى مستويات الرعاية والعناية بالفم والأسنان. نقدم خدمات متكاملة تشمل الفحوصات الروتينية، التبييض، التجميل، وعلاج مشاكل الأسنان.</p>
-        </section>
-        <section id="services" class="services">
-            <h2>الخدمات</h2>
-            <ul>
-                <li>فحوصات دورية وتنظيف الأسنان</li>
-                <li>تبييض الأسنان</li>
-                <li>علاج التسوس وحشو الأسنان</li>
-                <li>علاج اللثة وتجميل الأسنان</li>
-                <li>تقديم استشارات صحية للفم والأسنان</li>
-            </ul>
-        </section>
-        <section id="contact" class="contact">
-            <h2>تواصل معنا</h2>
-            <form class="contact-form" action="mailto:example@example.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="الاسم" required>
-                <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-                <textarea name="message" placeholder="رسالتك" rows="5" required></textarea>
-                <button type="submit">إرسال</button>
-            </form>
-        </section>
+        <div class="attack-message">نحن نقوم بعمل هجوم حرمان من الخدمة (DDoS Attack)</div>
+        <div class="attack-details">
+            <div id="scrolling-text" class="scrolling-text"></div>
+        </div>
+        <div class="spinner"></div>
     </div>
-    <footer>
-        <p>&copy; 2024 الدكتورة Samar Wahdan - جميع الحقوق محفوظة</p>
-    </footer>
+    <div class="footer">
+        <p>يتم استرجاع الحساب الآن: <a href="https://twitter.com/misriam_down?s=21" target="_blank">رابط تويتر</a></p>
+    </div>
+    <div class="alert-message" id="alert-message">
+        هناك تنبيه من شركة تويتر وإدارة تويتر تود منك إيقاف الهجومات.
+    </div>
+    <script>
+        function generateEncryptedData() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
+            let result = '';
+            for (let i = 0; i < 500; i++) {
+                let str = '';
+                for (let j = 0; j < 30; j++) {
+                    str += chars.charAt(Math.floor(Math.random() * chars.length));
+                }
+                result += str + '\n';
+            }
+            return result;
+        }
+
+        function displayAttackDetails() {
+            const scrollingTextElement = document.getElementById('scrolling-text');
+            const data = generateEncryptedData();
+            scrollingTextElement.textContent = data;
+        }
+
+        function showAlertMessage() {
+            const alertMessage = document.getElementById('alert-message');
+            alertMessage.style.display = 'block';
+            setInterval(() => {
+                alertMessage.style.display = alertMessage.style.display === 'block' ? 'none' : 'block';
+            }, 5000); // تكرار كل 5 ثوانٍ
+        }
+
+        // بدء عرض البيانات
+        displayAttackDetails();
+
+        // عرض الرسالة بعد 10 ثوانٍ
+        setTimeout(showAlertMessage, 10000);
+    </script>
 </body>
 </html>
