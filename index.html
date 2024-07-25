@@ -3,348 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>صفحة الاستثمار</title>
+    <title>الدكتورة Samar Wahdan - عيادة الأسنان</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #5B86E5, #36D7B7);
-            color: #fff;
-            overflow-x: hidden;
+            background-color: #f4f4f4;
         }
         header {
-            background: #1e2a38;
+            background-color: #004d99;
             color: #fff;
             padding: 20px;
             text-align: center;
-            position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
-        .logo {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 60px;
-            height: 60px;
-            background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8-JegZVl3GiAeQnxTTRb3Cgt3CoYcYP6jRzGvkbOEAz-QT-IVLxaYK8L9&s=10') no-repeat center;
-            background-size: contain;
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #003366;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
         }
         .container {
             max-width: 1200px;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .login-container, .investment-container, .register-container {
-            display: none;
+        .services, .contact {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #003366;
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form input, .contact-form textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .contact-form button {
+            background-color: #004d99;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        footer {
+            background-color: #003366;
+            color: #fff;
             text-align: center;
-        }
-        .login-container.active, .investment-container.active, .register-container.active {
-            display: block;
-        }
-        .form-group {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-        }
-        input {
-            width: 80%;
-            padding: 15px;
-            border: 2px solid #fff;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-        }
-        button {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 8px;
-            background: #ff7e5f;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        button:hover {
-            background: #feb47b;
-        }
-        .balance-container {
-            background: rgba(255, 255, 255, 0.3);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .balance-info {
-            font-size: 20px;
-        }
-        .balance-info span {
-            font-weight: bold;
-            color: #ffd700;
-        }
-        .withdraw-button {
-            background: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .withdraw-button:hover {
-            background: #218838;
-        }
-        .logout {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #ff7e5f;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .logout:hover {
-            background: #feb47b;
-        }
-        .notification {
+            padding: 10px;
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #fff;
-            color: #333;
-            padding: 15px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            opacity: 0;
-            transition: opacity 0.5s, transform 0.5s;
-        }
-        .notification.show {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .notification.hide {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-        .balance-container {
-            background: #1e2a38;
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-        .balance-info {
-            font-size: 20px;
-        }
-        .balance-info span {
-            font-weight: bold;
-        }
-        .withdraw-button {
-            background: #28a745;
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-        .withdraw-button:hover {
-            background: #218838;
-        }
-        .link {
-            margin-top: 20px;
-        }
-        .link a {
-            color: #ffd700;
-            text-decoration: none;
-        }
-        .link a:hover {
-            text-decoration: underline;
+            bottom: 0;
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"></div>
-        <h1>استثمار</h1>
-        <button class="logout" onclick="logout()">تسجيل الخروج</button>
+        <h1>الدكتورة Samar Wahdan - عيادة الأسنان</h1>
     </header>
-
+    <nav>
+        <a href="#about">عن العيادة</a>
+        <a href="#services">الخدمات</a>
+        <a href="#contact">تواصل معنا</a>
+    </nav>
     <div class="container">
-        <!-- صفحة تسجيل الدخول -->
-        <div class="login-container active" id="login-container">
-            <h1>تسجيل الدخول</h1>
-            <div class="form-group">
-                <input type="text" id="username" placeholder="اسم المستخدم" />
-            </div>
-            <div class="form-group">
-                <input type="password" id="password" placeholder="كلمة المرور" />
-            </div>
-            <button onclick="login()">تسجيل الدخول</button>
-            <div class="link">
-                <a href="#" onclick="showRegisterForm()">إنشاء حساب</a>
-            </div>
-        </div>
-
-        <!-- صفحة إنشاء حساب -->
-        <div class="register-container" id="register-container">
-            <h1>إنشاء حساب</h1>
-            <div class="form-group">
-                <input type="text" id="reg-username" placeholder="اسم المستخدم" />
-            </div>
-            <div class="form-group">
-                <input type="password" id="reg-password" placeholder="كلمة المرور" />
-            </div>
-            <button onclick="register()">إنشاء حساب</button>
-            <div class="link">
-                <a href="#" onclick="showLoginForm()">تسجيل الدخول</a>
-            </div>
-        </div>
-
-        <!-- صفحة الاستثمار -->
-        <div class="investment-container" id="investment-container">
-            <h2>مرحبا، <span id="user-name"></span></h2>
-            <div class="balance-container">
-                <div class="balance-info">
-                    رصيدك الحالي: <span id="balance">50</span> جنيه
-                </div>
-                <button class="withdraw-button" onclick="checkWithdrawal()">سحب الرصيد</button>
-            </div>
-            <div class="investment-options">
-                <h3>استثمر الآن</h3>
-                <p><strong>استثمر بـ 50 جنيه</strong> لتحصل على 100 جنيه</p>
-                <p><strong>استثمر بـ 100 جنيه</strong> لتحصل على 200 جنيه</p>
-                <p><strong>استثمر بـ 200 جنيه</strong> لتحصل على 400 جنيه</p>
-                <p><strong>استثمر بـ 400 جنيه</strong> لتحصل على 800 جنيه</p>
-                <p><strong>استثمر بـ 1000 جنيه</strong> لتحصل على 4000 جنيه</p>
-            </div>
-        </div>
+        <section id="about">
+            <h2>عن العيادة</h2>
+            <p>نرحب بكم في عيادة الدكتورة Samar Wahdan المتخصصة في تقديم أعلى مستويات الرعاية والعناية بالفم والأسنان. نقدم خدمات متكاملة تشمل الفحوصات الروتينية، التبييض، التجميل، وعلاج مشاكل الأسنان.</p>
+        </section>
+        <section id="services" class="services">
+            <h2>الخدمات</h2>
+            <ul>
+                <li>فحوصات دورية وتنظيف الأسنان</li>
+                <li>تبييض الأسنان</li>
+                <li>علاج التسوس وحشو الأسنان</li>
+                <li>علاج اللثة وتجميل الأسنان</li>
+                <li>تقديم استشارات صحية للفم والأسنان</li>
+            </ul>
+        </section>
+        <section id="contact" class="contact">
+            <h2>تواصل معنا</h2>
+            <form class="contact-form" action="mailto:example@example.com" method="post" enctype="text/plain">
+                <input type="text" name="name" placeholder="الاسم" required>
+                <input type="email" name="email" placeholder="البريد الإلكتروني" required>
+                <textarea name="message" placeholder="رسالتك" rows="5" required></textarea>
+                <button type="submit">إرسال</button>
+            </form>
+        </section>
     </div>
-
-    <!-- إشعارات السحب -->
-    <div class="notification" id="notification">
-        <p id="notification-message"></p>
-    </div>
-
-    <script>
-        function showRegisterForm() {
-            document.getElementById('login-container').style.display = 'none';
-            document.getElementById('register-container').style.display = 'block';
-        }
-
-        function showLoginForm() {
-            document.getElementById('register-container').style.display = 'none';
-            document.getElementById('login-container').style.display = 'block';
-        }
-
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const user = registeredUsers.find(user => user.username === username && user.password === password);
-            if (user) {
-                localStorage.setItem('loggedIn', true);
-                localStorage.setItem('username', username);
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('register-container').style.display = 'none';
-                document.getElementById('investment-container').style.display = 'block';
-                document.getElementById('user-name').textContent = username;
-                updateBalance();
-            } else {
-                alert('اسم المستخدم أو كلمة المرور غير صحيحة.');
-            }
-        }
-
-        function register() {
-            const username = document.getElementById('reg-username').value;
-            const password = document.getElementById('reg-password').value;
-            const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
-            if (registeredUsers.find(user => user.username === username)) {
-                alert('اسم المستخدم موجود بالفعل.');
-            } else {
-                registeredUsers.push({ username, password, balance: 50 });
-                localStorage.setItem('users', JSON.stringify(registeredUsers));
-                localStorage.setItem('loggedIn', true);
-                localStorage.setItem('username', username);
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('register-container').style.display = 'none';
-                document.getElementById('investment-container').style.display = 'block';
-                document.getElementById('user-name').textContent = username;
-                updateBalance();
-            }
-        }
-
-        function updateBalance() {
-            const username = localStorage.getItem('username');
-            const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
-            const user = registeredUsers.find(user => user.username === username);
-            if (user) {
-                document.getElementById('balance').textContent = user.balance;
-            }
-        }
-
-        function checkWithdrawal() {
-            const balance = parseInt(document.getElementById('balance').textContent, 10);
-            if (balance >= 100) {
-                alert('تم السحب بنجاح.');
-                const username = localStorage.getItem('username');
-                const registeredUsers = JSON.parse(localStorage.getItem('users')) || [];
-                const user = registeredUsers.find(user => user.username === username);
-                if (user) {
-                    user.balance -= 100;
-                    localStorage.setItem('users', JSON.stringify(registeredUsers));
-                    updateBalance();
-                }
-            } else {
-                showNotification('يمكنك السحب عندما يكون المبلغ 100 جنيه');
-            }
-        }
-
-        function showNotification(message) {
-            const notification = document.getElementById('notification');
-            const notificationMessage = document.getElementById('notification-message');
-            notificationMessage.textContent = message;
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-                notification.classList.add('hide');
-            }, 3000);
-        }
-
-        function logout() {
-            localStorage.removeItem('loggedIn');
-            localStorage.removeItem('username');
-            document.getElementById('investment-container').style.display = 'none';
-            document.getElementById('login-container').style.display = 'block';
-            document.getElementById('register-container').style.display = 'none';
-        }
-
-        window.onload = function() {
-            const loggedIn = localStorage.getItem('loggedIn');
-            if (loggedIn) {
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('register-container').style.display = 'none';
-                document.getElementById('investment-container').style.display = 'block';
-                document.getElementById('user-name').textContent = localStorage.getItem('username');
-                updateBalance();
-            } else {
-                document.getElementById('login-container').style.display = 'block';
-                document.getElementById('register-container').style.display = 'none';
-                document.getElementById('investment-container').style.display = 'none';
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2024 الدكتورة Samar Wahdan - جميع الحقوق محفوظة</p>
+    </footer>
 </body>
 </html>
