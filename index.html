@@ -1,163 +1,87 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>هجوم الحرمان من الخدمة</title>
+    <title>عدنان زيد للاستثمار</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000;
-            color: #0f0;
-            font-family: 'Courier New', Courier, monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            position: relative;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
         }
         .container {
-            text-align: center;
-            position: relative;
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
         }
-        .attack-message {
-            font-size: 2em;
-            margin-bottom: 20px;
-            animation: flicker 1.5s infinite;
-            text-shadow: 0 0 10px #0f0, 0 0 20px #0f0, 0 0 30px #0f0;
-        }
-        .top-bar {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 0, 0, 0.7);
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 1.5em;
-            z-index: 10;
-            box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
-        }
-        .spinner {
-            border: 16px solid #000; /* خلفية */
-            border-top: 16px solid #0f0; /* لون التحميل */
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        .attack-details {
-            font-size: 1.2em;
-            white-space: pre-wrap;
-            line-height: 1.5;
-            max-width: 80%;
-            margin: 0 auto;
-            text-shadow: 0 0 5px #0f0;
-            position: relative;
-            height: 60vh; /* لضبط الارتفاع مع الاحتفاظ بعرض البيانات */
-            overflow: hidden;
-        }
-        .scrolling-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            animation: scroll 5s linear infinite; /* سرعة أسرع */
-        }
-        .footer {
-            position: absolute;
-            bottom: 10px;
-            width: 100%;
-            color: #fff;
-            font-size: 1.2em;
+        .investment-plan {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 2rem 0;
+            padding: 1.5rem;
             text-align: center;
         }
-        .footer a {
-            color: #0f0;
-            text-decoration: none;
+        .investment-plan h2 {
+            color: #4CAF50;
         }
-        .alert-message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: rgba(255, 0, 0, 0.8);
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            font-size: 1.5em;
+        .investment-plan p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        .investment-plan button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .investment-plan button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #333;
+            color: white;
             text-align: center;
-            display: none;
-            z-index: 10;
-            width: 80%;
-        }
-        @keyframes scroll {
-            0% { top: 0; }
-            100% { top: -100%; }
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes flicker {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
+            padding: 1rem;
+            margin-top: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="top-bar">بيتم دعس الكويتيين</div>
+    <header>
+        <h1>عدنان زيد للاستثمار</h1>
+        <p>ضاعف أموالك بسهولة وشفافية</p>
+    </header>
+
     <div class="container">
-        <div class="attack-message">نحن نقوم بعمل هجوم حرمان من الخدمة (DDoS Attack)</div>
-        <div class="attack-details">
-            <div id="scrolling-text" class="scrolling-text"></div>
+        <div class="investment-plan">
+            <h2>خطة الاستثمار</h2>
+            <p>استثمر 1000 دولار واحصل على 2000 دولار</p>
+            <p>مدة العملية: 24 ساعة</p>
+            <button onclick="deposit()">ابدأ الاستثمار الآن</button>
         </div>
-        <div class="spinner"></div>
     </div>
-    <div class="footer">
-        <p>يتم استرجاع الحساب الآن: <a href="https://twitter.com/misriam_down?s=21" target="_blank">رابط تويتر</a></p>
-    </div>
-    <div class="alert-message" id="alert-message">
-        هناك تنبيه من شركة تويتر وإدارة تويتر تود منك إيقاف الهجومات.
-    </div>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © 2024 عدنان زيد للاستثمار</p>
+    </footer>
+
     <script>
-        function generateEncryptedData() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+[]{}|;:,.<>?';
-            let result = '';
-            for (let i = 0; i < 500; i++) {
-                let str = '';
-                for (let j = 0; j < 30; j++) {
-                    str += chars.charAt(Math.floor(Math.random() * chars.length));
-                }
-                result += str + '\n';
-            }
-            return result;
+        function deposit() {
+            alert("لإتمام عملية الاستثمار، يرجى التواصل مع خدمة العملاء.");
         }
-
-        function displayAttackDetails() {
-            const scrollingTextElement = document.getElementById('scrolling-text');
-            const data = generateEncryptedData();
-            scrollingTextElement.textContent = data;
-        }
-
-        function showAlertMessage() {
-            const alertMessage = document.getElementById('alert-message');
-            alertMessage.style.display = 'block';
-            setInterval(() => {
-                alertMessage.style.display = alertMessage.style.display === 'block' ? 'none' : 'block';
-            }, 5000); // تكرار كل 5 ثوانٍ
-        }
-
-        // بدء عرض البيانات
-        displayAttackDetails();
-
-        // عرض الرسالة بعد 10 ثوانٍ
-        setTimeout(showAlertMessage, 10000);
     </script>
 </body>
 </html>
