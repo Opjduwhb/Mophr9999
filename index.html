@@ -1,87 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عدنان زيد للاستثمار</title>
+    <title>محفظة إلكترونية - ولاء محمد</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 1rem;
             text-align: center;
+            direction: rtl;
         }
         .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 1rem;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
         }
-        .investment-plan {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 2rem 0;
-            padding: 1.5rem;
-            text-align: center;
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
         }
-        .investment-plan h2 {
-            color: #4CAF50;
+        .balance {
+            font-size: 36px;
+            font-weight: bold;
+            color: green;
+            margin: 20px 0;
         }
-        .investment-plan p {
-            font-size: 1.2rem;
-            margin: 1rem 0;
-        }
-        .investment-plan button {
+        .button {
             background-color: #4CAF50;
             color: white;
+            padding: 10px 20px;
+            margin: 10px;
             border: none;
-            padding: 1rem 2rem;
-            font-size: 1rem;
             border-radius: 5px;
             cursor: pointer;
         }
-        .investment-plan button:hover {
+        .button:hover {
             background-color: #45a049;
         }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 2rem;
+        .image-container {
+            margin: 20px 0;
+        }
+        .image-container img {
+            width: 100px;
+            height: auto;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 60%;
+        }
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            float: right;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .result-message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: red;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>عدنان زيد للاستثمار</h1>
-        <p>ضاعف أموالك بسهولة وشفافية</p>
-    </header>
 
-    <div class="container">
-        <div class="investment-plan">
-            <h2>خطة الاستثمار</h2>
-            <p>استثمر 1000 دولار واحصل على 2000 دولار</p>
-            <p>مدة العملية: 24 ساعة</p>
-            <button onclick="deposit()">ابدأ الاستثمار الآن</button>
-        </div>
+<div class="container">
+    <div class="header">
+        محفظة إلكترونية - ولاء محمد
+    </div>
+    <div class="balance">
+        الرصيد: 8000 جنيه
+    </div>
+    <div class="image-container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkpII1B7cfsgP_LdzP7h_2jglB5AGQazQ8mXzZnQ6SPpViubRyvptf0Lx&s=10" alt="شعار فودافون">
     </div>
 
-    <footer>
-        <p>جميع الحقوق محفوظة © 2024 عدنان زيد للاستثمار</p>
-    </footer>
+    <button class="button" onclick="document.getElementById('sendModal').style.display='block'">إرسال</button>
+    
+    <div class="footer">
+        جميع الحقوق محفوظة.
+    </div>
+</div>
 
-    <script>
-        function deposit() {
-            alert("لإتمام عملية الاستثمار، يرجى التواصل مع خدمة العملاء.");
+<!-- Modal for Send -->
+<div id="sendModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="document.getElementById('sendModal').style.display='none'">&times;</span>
+        <h2>إرسال المبلغ</h2>
+        <p>ادخل بياناتك الذي سيتم تحويل المبلغ الحالي عليها. سيتم دفع ضريبة 500 جنيه على هذا الرقم: 01050079125</p>
+        
+        <form id="sendForm">
+            <input type="text" id="name" placeholder="أدخل اسمك" required><br><br>
+            <input type="text" id="address" placeholder="أدخل عنوانك" required><br><br>
+            <input type="text" id="phone" placeholder="أدخل رقم هاتفك" required><br><br>
+            <button type="submit" class="button">إرسال</button>
+        </form>
+
+        <div id="resultMessage" class="result-message" style="display:none;">
+            برجاء دفع الضريبة 500 جنيه على هذا الرقم: 01050079125
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById('sendForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        document.getElementById('resultMessage').style.display = 'block';
+        document.getElementById('sendForm').reset();
+    });
+    
+    // Function to open and close modals
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('sendModal')) {
+            document.getElementById('sendModal').style.display = "none";
         }
-    </script>
+    }
+</script>
+
 </body>
 </html>
