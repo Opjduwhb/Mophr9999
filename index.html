@@ -3,149 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محفظة إلكترونية - ولاء محمد</title>
+    <title>تأكيد استلام المبلغ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            text-align: center;
             direction: rtl;
+            text-align: right;
+            margin: 20px;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        img {
+            width: 150px;
         }
         .container {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            margin: 50px auto;
+            border: 2px solid #ddd;
             padding: 20px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
-        .header {
-            font-size: 24px;
+        .highlight {
+            color: #2a7d2a;
             font-weight: bold;
-            color: #333;
         }
-        .balance {
-            font-size: 36px;
-            font-weight: bold;
-            color: green;
-            margin: 20px 0;
-        }
-        .button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            margin: 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-        .image-container {
-            margin: 20px 0;
-        }
-        .image-container img {
-            width: 100px;
-            height: auto;
-        }
-        .footer {
+        footer {
             margin-top: 20px;
-            font-size: 14px;
-            color: #777;
-        }
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding-top: 60px;
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
-        }
-        .close {
-            color: #aaa;
-            font-size: 28px;
-            font-weight: bold;
-            text-decoration: none;
-            float: right;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        .result-message {
-            margin-top: 20px;
-            font-size: 18px;
-            color: red;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 
+<header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUA7csL8M4LfpEG9KG0uvywxlmjVug15369Q&usqp=CAU" alt="الشعار">
+    <h1>تأكيد المعاملة</h1>
+</header>
+
 <div class="container">
-    <div class="header">
-     محفظة إلكترونية - محمود 
-    </div>
-    <div class="balance">
-      تم سحب المبلغ الان الرصيد: 157,390 جنيه
-    </div>
-    <div class="image-container">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkpII1B7cfsgP_LdzP7h_2jglB5AGQazQ8mXzZnQ6SPpViubRyvptf0Lx&s=10" alt="شعار فودافون">
-    </div>
-
-    <button class="button" onclick="document.getElementById('sendModal').style.display='block'">إرسال</button>
-    
-    <div class="footer">
-        جميع الحقوق محفوظة.
-    </div>
+    <p>تم استلام الحوالة بنجاح. سيتم توثيق المبلغ خلال <span class="highlight">42 ساعة</span> بسبب حجم المبلغ الكبير.</p>
+    <p>للتأكيد، تفاصيل الحوالة هي:</p>
+    <ul>
+        <li>رقم الحوالة: <span class="highlight">01554260684</span></li>
+        <li>الاسم: <span class="highlight">محمود الزهيري</span></li>
+        <li>البلد: <span class="highlight">الغربية</span></li>
+        <li>المبلغ: <span class="highlight">157,390</span></li>
+    </ul>
+    <p>نشكركم على ثقتكم في خدماتنا. نسعى دائمًا لضمان أمان العملاء.</p>
 </div>
 
-<!-- Modal for Send -->
-<div id="sendModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="document.getElementById('sendModal').style.display='none'">&times;</span>
-        <h2>إرسال المبلغ</h2>
-        <p>ادخل بياناتك الذي سيتم تحويل المبلغ الحالي عليها. سيتم دفع ضريبة 1900 جنيه على هذا العنوان cibgijcdybdsrgcd@jbffgcxzZx: </p>
-        
-        <form id="sendForm">
-            <input type="text" id="name" placeholder="أدخل اسمك" required><br><br>
-            <input type="text" id="address" placeholder="أدخل عنوانك" required><br><br>
-            <input type="text" id="phone" placeholder="أدخل رقم هاتفك" required><br><br>
-            <button type="submit" class="button">إرسال</button>
-        </form>
-
-        <div id="resultMessage" class="result-message" style="display:none;">
-            برجاء دفع الضريبة 500 جنيه على هذا العنون mofbkgdvbvsz@obxzsgvx: 
-        </div>
-    </div>
-</div>
-
-<script>
-    document.getElementById('sendForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        document.getElementById('resultMessage').style.display = 'block';
-        document.getElementById('sendForm').reset();
-    });
-    
-    // Function to open and close modals
-    window.onclick = function(event) {
-        if (event.target == document.getElementById('sendModal')) {
-            document.getElementById('sendModal').style.display = "none";
-        }
-    }
-</script>
+<footer>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdkpII1B7cfsgP_LdzP7h_2jglB5AGQazQ8mXzZnQ6SPpViubRyvptf0Lx&s=10" alt="الخدمات">
+</footer>
 
 </body>
 </html>
