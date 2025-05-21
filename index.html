@@ -1,1 +1,121 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>محفظة TempBit المؤقتة</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- صورة الإشعار favicon -->
+  <link rel="icon" type="image/png" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi6quQXgD9JYZcmWuCuCLT62IVEagUf2X6g18WMCEG3fm5WaS3na7s9ZVv&s=10">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+      direction: rtl;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    .wallet-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 30px;
+      text-align: center;
+      box-shadow: 0 0 30px rgba(0,0,0,0.2);
+      animation: slideUp 1s ease-in-out;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.1em;
+      margin-top: 20px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #00c6ff;
+      background: linear-gradient(to right, #0072ff, #00c6ff);
+      color: #fff;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #number-box {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px dashed #00c6ff;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      display: none;
+    }
+
+    .logo {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 15px;
+      border-radius: 50%;
+      animation: zoomIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(100px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    @keyframes zoomIn {
+      from {transform: scale(0.5); opacity: 0;}
+      to {transform: scale(1); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wallet-box">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSi6quQXgD9JYZcmWuCuCLT62IVEagUf2X6g18WMCEG3fm5WaS3na7s9ZVv&s=10" alt="شعار المحفظة" class="logo">
+    <h1>محفظة TempBit المؤقتة</h1>
+    <p>محفظة مؤقتة مدعومة من سيرفرات البتكوين. غير تابعة لأي شركة وتم تصميمها بواسطة مطور مستقل.</p>
+    <p>تدعم فودافون كاش - اتصالات - أورنج - Binance وخدمات أخرى.</p>
+    <p>اشتراك لمدة ساعة واحدة فقط مقابل <strong>500 جنيه مصري</strong>. بعد انتهاء الوقت، يجب تجديد الاشتراك.</p>
+
+    <button onclick="showNumber()">شراء الآن</button>
+
+    <div id="number-box">
+      <strong>قم بالتحويل إلى الرقم التالي:</strong><br>
+      <span style="font-size: 1.3em; margin-top: 10px;">01050079125</span>
+    </div>
+  </div>
+
+  <script>
+    function showNumber() {
+      document.getElementById('number-box').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
 
